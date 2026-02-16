@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Аналитика</h2>
+<p><b>Всего заявок:</b> {{ total }}</p>
+<p><b>Средний первый ответ (мин):</b> {{ '%.1f'|format(metrics.avg_first_response_min or 0) }}</p>
+<p><b>Среднее время решения (мин):</b> {{ '%.1f'|format(metrics.avg_resolution_min or 0) }}</p>
+<p><b>Средняя оценка:</b> {{ '%.2f'|format(metrics.avg_rating or 0) }}</p>
+
+<h3>По тегам</h3>
+<ul>
+  {% for row in by_tag %}
+  <li>{{ row.tag }} — {{ row.c }}</li>
+  {% else %}
+  <li>Нет данных</li>
+  {% endfor %}
+</ul>
+
+<h3>По отделам</h3>
+<ul>
+  {% for row in by_department %}
+  <li>{{ row.department or 'Без отдела' }} — {{ row.c }}</li>
+  {% else %}
+  <li>Нет данных</li>
+  {% endfor %}
+</ul>
+{% endblock %}

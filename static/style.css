@@ -1,0 +1,16 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f7f7fb; color: #1b1f23; }
+header { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#111827; color:#fff; }
+nav a { color:#fff; margin-left:12px; text-decoration:none; }
+main { max-width: 980px; margin: 22px auto; padding: 0 14px; }
+.card { background:#fff; border-radius:10px; padding:16px; margin-bottom:14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+label { display:block; margin-bottom:10px; }
+input, select, textarea, button { width:100%; padding:9px; margin-top:4px; box-sizing: border-box; }
+button { background:#2563eb; color:#fff; border:0; border-radius:8px; cursor:pointer; }
+table { width:100%; border-collapse: collapse; background:#fff; }
+th, td { border: 1px solid #e5e7eb; padding:8px; text-align:left; }
+.flash-list { list-style:none; padding:0; }
+.flash-list li { background:#dbeafe; border:1px solid #93c5fd; padding:8px; margin-bottom:8px; border-radius:8px; }
+.comment { border:1px solid #e5e7eb; padding:8px; border-radius:8px; margin-bottom:8px; background:#fff; }
+.comment.manager { border-left:4px solid #f59e0b; }
+.comment.client { border-left:4px solid #2563eb; }
+.hint { font-size: 0.9em; color:#6b7280; }
