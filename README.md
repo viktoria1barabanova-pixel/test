@@ -40,7 +40,7 @@ python app.py
 ## Переменные окружения
 
 - `SECRET_KEY` — ключ Flask-сессий
-- `https://bezumno.bitrix24.ru/rest/160/ebjk4eowq57ef0p1/` — базовый URL входящего webhook Bitrix24 без метода,
+- `BITRIX_WEBHOOK_URL` — базовый URL входящего webhook Bitrix24 без метода,
   например: `https://your-bitrix/rest/1/abc123`
 - `BITRIX_INBOUND_KEY` — ключ для входящего endpoint от Bitrix в этот портал
 - `MANAGER_API_KEY` — API-ключ менеджерского API
