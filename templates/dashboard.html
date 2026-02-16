@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Мои заявки</h2>
+{% if tickets %}
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Критичность</th>
+      <th>Тег</th>
+      <th>Заголовок</th>
+      <th>Статус</th>
+      <th>Новые ответы</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in tickets %}
+    <tr>
+      <td>#{{ t.id }}</td>
+      <td>{{ t.criticality }}</td>
+      <td>{{ t.tag }}</td>
+      <td>{{ t.title }}</td>
+      <td>{{ t.status }}</td>
+      <td>{{ t.unread_count }}</td>
+      <td><a href="{{ url_for('ticket_detail', ticket_id=t.id) }}">Открыть</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Заявок пока нет. <a href="{{ url_for('new_ticket') }}">Создать первую</a></p>
+{% endif %}
+{% endblock %}

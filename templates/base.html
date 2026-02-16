@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title or "Support Portal" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <header>
+      <h1>Support Portal</h1>
+      <nav>
+        {% if session.get('user_id') %}
+        <a href="{{ url_for('dashboard') }}">Мои заявки</a>
+        <a href="{{ url_for('new_ticket') }}">Новая заявка</a>
+        {% endif %}
+        <a href="{{ url_for('analytics') }}">Аналитика</a>
+        {% if session.get('user_id') %}
+        <a href="{{ url_for('logout') }}">Выйти</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <main>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class="flash-list">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

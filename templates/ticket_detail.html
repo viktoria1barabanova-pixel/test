@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Заявка #{{ ticket.id }} — {{ ticket.title }}</h2>
+<p><b>Статус:</b> {{ ticket.status }} | <b>Критичность:</b> {{ ticket.criticality }} | <b>Тег:</b> {{ ticket.tag }}</p>
+<p><b>Описание:</b> {{ ticket.description }}</p>
+<p><b>Синхронизация в Битрикс:</b> {{ ticket.bitrix_sync_status }}</p>
+
+<h3>Диалог</h3>
+<div class="comments">
+  {% for c in comments %}
+  <div class="comment {{ c.author_type }}">
+    <div class="meta">{{ c.author_name }} ({{ c.author_type }}) — {{ c.created_at }}</div>
+    <div>{{ c.text }}</div>
+  </div>
+  {% else %}
+  <p>Пока нет комментариев.</p>
+  {% endfor %}
+</div>
+
+<form method="post" action="{{ url_for('add_client_comment', ticket_id=ticket.id) }}" class="card">
+  <h4>Написать менеджеру</h4>
+  <textarea name="text" rows="4" required></textarea>
+  <button type="submit">Отправить</button>
+</form>
+
+<form method="post" action="{{ url_for('rate_ticket', ticket_id=ticket.id) }}" class="card">
+  <h4>Оценить решение</h4>
+  <select name="rate">
+    <option value="5">5 — отлично</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1 — плохо</option>
+  </select>
+  <button type="submit">Сохранить оценку</button>
+</form>
+{% endblock %}
