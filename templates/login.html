@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Вход по номеру телефона</h2>
+  <form method="post">
+    <label>Телефон
+      <input name="phone" placeholder="+79991234567" value="{{ phone or '' }}" required />
+    </label>
+    <label>Код подтверждения
+      <input name="otp" placeholder="0000" />
+    </label>
+    <p class="hint">MVP-режим: используйте код <b>0000</b>. Реальную отправку СМС подключим позже.</p>
+    <button type="submit">Войти</button>
+  </form>
+</section>
+{% endblock %}

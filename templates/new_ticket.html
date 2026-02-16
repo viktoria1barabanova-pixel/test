@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Новая заявка</h2>
+  <form method="post">
+    <label>Критичность
+      <select name="criticality" required>
+        <option value="">Выберите</option>
+        {% for c in criticality_options %}
+        <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>Тег
+      <input name="tag" placeholder="Например, Доступы / Оплата / Ошибка API" required />
+    </label>
+    <label>Отдел
+      <input name="department" placeholder="Например, Финансы" />
+    </label>
+    <label>Что нужно сделать
+      <input name="title" required />
+    </label>
+    <label>Описание
+      <textarea name="description" rows="6" required></textarea>
+    </label>
+    <button type="submit">Отправить заявку</button>
+  </form>
+</section>
+{% endblock %}
