@@ -22,7 +22,7 @@ except Exception:  # pragma: no cover
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, "support.db")
-BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL", "https://bezumno.bitrix24.ru/rest/160/ebjk4eowq57ef0p1/").strip()
+BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL", "").strip()
 BITRIX_INBOUND_KEY = os.getenv("BITRIX_INBOUND_KEY", "bitrix-demo-key")
 MANAGER_API_KEY = os.getenv("MANAGER_API_KEY", "manager-demo-key")
 
